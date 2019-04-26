@@ -190,4 +190,4 @@ System.out.println("\n" + "Het spel is voorbij... Bedankt voor het spelen!");
 class Speler {
 	String naam;
 	ArrayList<Worp> worpgeschiedenis = new ArrayList<>();
-}
+} 
