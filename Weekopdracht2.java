@@ -9,7 +9,6 @@ public class Weekopdracht2 {
 	public static void main(String[] args) {
 		Yahtzeespel nieuwspel = new Yahtzeespel();
 		nieuwspel.start();
-
 	}
 }
 
@@ -67,13 +66,13 @@ class Yahtzeespel {
 			speler3.naam = spel4naam3.nextLine();
 			System.out.println("Wat is de naam van Speler 4?");
 			Scanner spel4naam4 = new Scanner(System.in);
-			speler3.naam = spel4naam4.nextLine();
+			speler4.naam = spel4naam4.nextLine();
 			spelen(speler1);
 			spelen(speler2);
 			spelen(speler3);
 			spelen(speler4);
 		}
-
+System.out.println("\n" + "Het spel is voorbij... Bedankt voor het spelen!");
 	}
 
 	ArrayList<Dobbelsteen> dobbelstenen = new ArrayList<>();
@@ -84,12 +83,15 @@ class Yahtzeespel {
 		}
 	}
 
+	
 	int[] blokkeerarray = new int[] {0, 0, 0, 0, 0};
 	int[] checkarray = new int [] {1, 1, 1, 1, 1};
-	
 
 	void spelen(Speler speler) {
-		System.out.println(speler.naam + " is aan de beurt!");
+		for (int getal = 0; getal < blokkeerarray.length; getal++) {
+			blokkeerarray[getal] = 0;
+		}
+		System.out.println("\n"+ speler.naam + " is aan de beurt!");
 		System.out.println("De dobbelstenen zijn gegooid:");
 		boolean doorgaan = true;
 		int worpnummer = 1;
@@ -118,17 +120,12 @@ class Yahtzeespel {
 				break;
 
 			}
-
-			
-
-			
-
 		}
 		else{
-			System.out.println("Je hebt alle dobbelstenen vastgehouden. Dit was het einde van het spel");
+			System.out.println("Je hebt alle dobbelstenen vastgehouden.");
 			break;
 		}
-		
+			
 		}
 		System.out.println("Dit is het einde van je beurt.");
 		System.out.println("Je worpgeschiedenis is:");
@@ -136,6 +133,7 @@ class Yahtzeespel {
 			System.out.println(Arrays.toString(worp.geworpen));
 		}
 	}
+	
 
 	void vasthouden() {
 		boolean invoernodig = true;
